@@ -6,7 +6,11 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
-  return <>Hello</>;
+  return (
+    <div>
+      <div className="bg-red-500 p ">Hello Man</div>
+    </div>
+  );
 }
 
 export default App;
