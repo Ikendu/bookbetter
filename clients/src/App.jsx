@@ -14,7 +14,7 @@ function App() {
           </div>
           <span className="font-bold text-lg">lifella</span>
         </div>
-        <div className="flex gap-2 border border-pink-900 rounded-full py-2 px-4 shadow-md shadow-pink-400">
+        <div className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4 shadow-md shadow-pink-400">
           <div>Anywhere</div>
           <div className="border-l border-pink-900"></div>
           <div>Any week</div>
@@ -24,11 +24,11 @@ function App() {
             <SearchIcon />
           </button>
         </div>
-        <div className="flex gap-2 border border-pink-900 rounded-full py-2 px-4 shadow shadow-pink-400">
+        <div className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4 shadow shadow-pink-400">
           <div>
             <MobileViewIcon />
           </div>
-          <div className="bg-primary rounded-full text-white">
+          <div className="bg-primary rounded-full text-white border-2 border-pink-900 overflow-hidden">
             <UserIcon />
           </div>
         </div>
