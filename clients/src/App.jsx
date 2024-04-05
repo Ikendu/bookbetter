@@ -24,7 +24,7 @@ function App() {
             <SearchIcon />
           </button>
         </div>
-        <div className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4 shadow shadow-pink-400">
+        <div className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4">
           <div>
             <MobileViewIcon />
           </div>
