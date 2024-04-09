@@ -1,13 +1,13 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import IndexPage from "./Pages/IndexPage";
 
 function App() {
-  // <Routes>
-  //   <Route index={ } />
-  // </Routes>;
   return (
     <div>
-      Hello
-      
+      <Routes>
+        <Route index element={<IndexPage />} />
+      </Routes>
     </div>
   );
 }
