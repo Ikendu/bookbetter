@@ -10,7 +10,7 @@ const LoginPage = () => {
           <input type="password" placeholder="password" />
           <button className="primary">Submit</button>
           <div>
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-center">
               Dont have an accout?{" "}
               <Link
                 className="underline text-black font-semibold"
