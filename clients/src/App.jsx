@@ -5,6 +5,10 @@ import LoginPage from "./Pages/LoginPage";
 import Layout from "./Pages/Layout";
 import RegisterPage from "./Pages/RegisterPage";
 
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:4000";
+
 function App() {
   return (
     <div>
