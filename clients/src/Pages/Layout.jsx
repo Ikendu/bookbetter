@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <div>
+    <div className="p-6">
       <HeaderPage />
       <Outlet />
     </div>

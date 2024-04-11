@@ -6,7 +6,7 @@ import UserIcon from "../assets/Icons/UserIcon";
 
 export default function HeaderPage() {
   return (
-    <header className="p-4 flex justify-between">
+    <header className="flex justify-between">
       <div className="flex gap-1 items-center">
         <div>
           <HomeIcon />

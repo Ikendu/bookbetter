@@ -1,4 +1,8 @@
 const LoginPage = () => {
-  return <div>LoginPage should come here</div>;
+    return <div>
+        <form>
+            <input placeholder="youremail.com"/>
+      </form>
+  </div>;
 };
 export default LoginPage;
