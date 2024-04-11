@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const registerUser = (e) => {
+    e.preventDefault();
+    axios.get("http://localhost:4000/test");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="">
         <h1>Register</h1>
-        <form>
+        <form onSubmit={registerUser}>
           <input
             type="text"
             placeholder="full name"
