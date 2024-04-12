@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const UserModel = require("./models/User");
 const dotenv = require("dotenv").config();
 
 const app = express();
@@ -15,8 +16,10 @@ console.log("THE PROCESS", process.env.MONGO_URL);
 app.get("/test", (req, res) => {
   res.json("test okay");
 });
+
 app.post("/register", (req, res) => {
   const details = req.body;
+  UserModel.create(details);
   res.json(details);
 });
 
