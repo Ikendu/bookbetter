@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -9,9 +10,15 @@ function RegisterPage() {
 
   const details = { name, email, password };
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
-    axios.post("/register", details);
+    try {
+      const response = await axios.post("/register", details);
+      console.log(response);
+    } catch (error) {
+      if (error.response.data.keyPattern.email == 1)
+        toast.error("Email already registered");
+    }
   };
 
   return (

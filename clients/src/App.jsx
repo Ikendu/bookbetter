@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import IndexPage from "./Pages/IndexPage";
 import LoginPage from "./Pages/LoginPage";
@@ -12,6 +14,7 @@ axios.defaults.baseURL = "http://localhost:4000";
 function App() {
   return (
     <div>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />

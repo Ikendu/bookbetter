@@ -20,13 +20,18 @@ app.get("/test", (req, res) => {
   res.json("test okay");
 });
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
   const details = req.body;
-  UserModel.create({
-    ...details,
-    password: bcrypt.hashSync(password, bcryptSalt),
-  });
-  res.json(details);
+  try {
+    const UserDoc = await UserModel.create({
+      ...details,
+      password: bcrypt.hashSync(details.password, bcryptSalt),
+    });
+    res.json(UserDoc);
+  } catch (e) {
+    console.log("Error here", e);
+    res.status(400).json(e);
+  }
 });
 
 app.listen(4000);
