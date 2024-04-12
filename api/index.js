@@ -10,8 +10,8 @@ app.use(express.json());
 
 // mongodb+srv://ndubest56:11111234Aa@booking1.qjb5s42.mongodb.net/?retryWrites=true&w=majority&appName=booking1
 
-mongoose, connect(process.env.MONGO_URL);
-s
+mongoose.connect(process.env.MONGO_URL);
+console.log("THE PROCESS", process.env.MONGO_URL);
 app.get("/test", (req, res) => {
   res.json("test okay");
 });
