@@ -1,13 +1,13 @@
-const { default: mongoose, model, models } = require("mongoose");
+const { default: mongoose, model } = require("mongoose");
 
 const { Schema } = mongoose;
 
-const UserSchema = Schema({
+const UserSchema = new Schema({
   name: String,
   email: { type: String, unique: true },
   password: String,
 });
 
-const UserModal = model("User", UserSchema);
+const UserModel = model("User", UserSchema);
 
-module.exports = UserModal;
+module.exports = UserModel
