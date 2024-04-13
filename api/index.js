@@ -5,11 +5,13 @@ const UserModel = require("./models/User");
 const dotenv = require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
+app.use(cookieParser());
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "fdsjoierwtiewu597978938eijtge934859figfj";
@@ -43,7 +45,7 @@ app.post("/login", async (req, res) => {
     const passOk = bcrypt.compareSync(details.password, userDoc.password);
     if (passOk) {
       jwt.sign(
-        { email: userDoc.email, id: userDoc._id },
+        { email: userDoc.email, id: userDoc._id, name: userDoc.name },
         jwtSecret,
         {},
         (err, token) => {
@@ -56,6 +58,17 @@ app.post("/login", async (req, res) => {
     }
   } else {
     res.json("incorrect email");
+  }
+});
+
+app.get("/profile", (req, res) => {
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, (err, userDoc) => {
+      res.json(userDoc);
+    });
+  } else {
+    res.json(null);
   }
 });
 
