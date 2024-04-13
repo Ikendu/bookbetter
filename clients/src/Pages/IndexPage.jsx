@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
 const IndexPage = () => {
-  return <div>index page here</div>;
+  const { user } = useContext(UserContext);
+  console.log(user);
+  return <div>index page here {user?.name}</div>;
 };
 export default IndexPage;

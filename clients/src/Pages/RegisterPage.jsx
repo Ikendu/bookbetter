@@ -1,15 +1,58 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function RegisterPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const details = { name, email, password };
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/register", details);
+      toast.success(`${response.data.name} your registration was successful`);
+      console.log(response.data);
+    } catch (error) {
+      if (error.response.data.keyPattern.email == 1)
+        toast.error("Email already registered");
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="">
+<<<<<<< HEAD
         <h1 className="text-center text-2xl">Register</h1>
         <form>
           <input type="text" placeholder="full name" />
           <input type="email" placeholder="youremail@email.com" />
           <input type="password" placeholder="password" />
+=======
+        <h1>Register</h1>
+        <form onSubmit={registerUser}>
+          <input
+            type="text"
+            placeholder="full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="youremail@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+>>>>>>> 2fb6209d4cafbba437c616bf40cef9c7646c3e7f
           <button className="primary">Submit</button>
           <div>
             <p className="text-gray-500 text-center">
