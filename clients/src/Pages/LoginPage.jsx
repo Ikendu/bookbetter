@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const redirect = useNavigate();
+  // const [redirects, setRedirects] = useState(false);
 
   const userData = { email, password };
 
@@ -12,12 +15,19 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/login", userData);
-
-      console.log(response.data);
+      if (response.data === "welcome") {
+        toast.success(response.data);
+        // setRedirects(true);
+        redirect("/");
+      } else toast.error(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  // if (redirects) {
+  //   return <Navigate to={"/"} />;
+  // }
 
   return (
     <div className="flex grow items-center  min-h-screen justify-around">
