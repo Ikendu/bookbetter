@@ -12,6 +12,7 @@ app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
 
 const bcryptSalt = bcrypt.genSaltSync(10);
+const jwtSecret = "fdsjoierwtiewu597978938eijtge934859figfj";
 
 // mongodb+srv://ndubest56:11111234Aa@booking1.qjb5s42.mongodb.net/?retryWrites=true&w=majority&appName=booking1
 
@@ -39,13 +40,22 @@ app.post("/login", async (req, res) => {
   const details = req.body;
   const userDoc = await UserModel.findOne({ email: details.email });
   if (userDoc) {
-    jwt.sign({ email: userDoc.email, id: userDoc._id }, (err, token) => {
-      if (err) throw err;
-      res.cookie("token", token);
-    });
-    res.json(userDoc);
+    const passOk = bcrypt.compareSync(details.password, userDoc.password);
+    if (passOk) {
+      jwt.sign(
+        { email: userDoc.email, id: userDoc._id },
+        jwtSecret,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie("token", token).json("welcome");
+        }
+      );
+    } else {
+      res.json("incorrect password");
+    }
   } else {
-    res.json("User not found");
+    res.json("incorrect email");
   }
 });
 
