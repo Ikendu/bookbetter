@@ -25,13 +25,6 @@ function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="">
-<<<<<<< HEAD
-        <h1 className="text-center text-2xl">Register</h1>
-        <form>
-          <input type="text" placeholder="full name" />
-          <input type="email" placeholder="youremail@email.com" />
-          <input type="password" placeholder="password" />
-=======
         <h1>Register</h1>
         <form onSubmit={registerUser}>
           <input
@@ -52,7 +45,6 @@ function RegisterPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
->>>>>>> 2fb6209d4cafbba437c616bf40cef9c7646c3e7f
           <button className="primary">Submit</button>
           <div>
             <p className="text-gray-500 text-center">
