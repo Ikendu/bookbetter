@@ -3,16 +3,19 @@ import HomeIcon from "../assets/Icons/HomeIcon";
 import SearchIcon from "../assets/Icons/SearchIcon";
 import MobileViewIcon from "../assets/Icons/MobileViewIcon";
 import UserIcon from "../assets/Icons/UserIcon";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export default function HeaderPage() {
+  const { user } = useContext(UserContext);
   return (
     <header className="flex justify-between">
-      <div className="flex gap-1 items-center">
+      <Link to={"/"} className="flex gap-1 items-center">
         <div>
           <HomeIcon />
         </div>
         <span className="font-bold text-lg">lifella</span>
-      </div>
+      </Link>
       <div className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4 shadow-md shadow-pink-400">
         <div>Anywhere</div>
         <div className="border-l border-pink-900"></div>
@@ -24,7 +27,7 @@ export default function HeaderPage() {
         </button>
       </div>
       <Link
-        to={"/login"}
+        to={user ? "/account" : "/login"}
         className="flex gap-2 items-center border border-pink-900 rounded-full py-2 px-4"
       >
         <div>
@@ -33,6 +36,7 @@ export default function HeaderPage() {
         <div className="bg-primary rounded-full text-white border-2 border-pink-900 overflow-hidden">
           <UserIcon />
         </div>
+        <div>{user?.name}</div>
       </Link>
     </header>
   );
