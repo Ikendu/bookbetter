@@ -8,7 +8,8 @@ const LoginPage = () => {
 
   const userData = { email, password };
 
-  const loginUser = async () => {
+  const loginUser = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post("/login", userData);
 

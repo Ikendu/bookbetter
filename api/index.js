@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const UserModel = require("./models/User");
 const dotenv = require("dotenv").config();
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
@@ -31,6 +32,20 @@ app.post("/register", async (req, res) => {
   } catch (e) {
     console.log("Error here", e);
     res.status(400).json(e);
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const details = req.body;
+  const userDoc = await UserModel.findOne({ email: details.email });
+  if (userDoc) {
+    jwt.sign({ email: userDoc.email, id: userDoc._id }, (err, token) => {
+      if (err) throw err;
+      res.cookie("token", token);
+    });
+    res.json(userDoc);
+  } else {
+    res.json("User not found");
   }
 });
 
