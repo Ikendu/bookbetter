@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "./UserContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const redirect = useNavigate();
+  const { user, setUser } = useContext(UserContext);
   // const [redirects, setRedirects] = useState(false);
 
   const userData = { email, password };
@@ -15,15 +17,20 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/login", userData);
-      if (response.data === "welcome") {
-        toast.success(response.data);
+
+      console.log(response.data);
+      if (response?.data) {
+        toast.success(`${response?.data?.name}, you are welcome`);
+        setUser(response?.data.name);
         // setRedirects(true);
         redirect("/");
-      } else toast.error(response.data);
+      } else toast.error(response?.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  console.log(user);
 
   // if (redirects) {
   //   return <Navigate to={"/"} />;
