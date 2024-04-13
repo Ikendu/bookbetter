@@ -5,7 +5,7 @@ function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="">
-        <h1>Register</h1>
+        <h1 className="text-center text-2xl">Register</h1>
         <form>
           <input type="text" placeholder="full name" />
           <input type="email" placeholder="youremail@email.com" />
