@@ -21,7 +21,7 @@ const LoginPage = () => {
       console.log(response.data);
       if (response?.data) {
         toast.success(`${response?.data?.name}, you are welcome`);
-        setUser(response?.data.name);
+        setUser(response?.data);
         // setRedirects(true);
         redirect("/");
       } else toast.error(response?.data);
