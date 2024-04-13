@@ -14,7 +14,8 @@ function RegisterPage() {
     e.preventDefault();
     try {
       const response = await axios.post("/register", details);
-      console.log(response);
+      toast.success(`${response.data.name} your registration was successful`);
+      console.log(response.data);
     } catch (error) {
       if (error.response.data.keyPattern.email == 1)
         toast.error("Email already registered");
