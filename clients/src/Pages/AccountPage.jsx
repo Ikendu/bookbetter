@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AccountPage = () => {
   const [loading, setLoading] = useState(true);
   const [loginMessage, setLoginMessage] = useState(false);
-  const { user, ready } = useContext(UserContext);
+  const { user, ready, setUser } = useContext(UserContext);
+  const redirect = useNavigate();
 
   setTimeout(() => {
     setLoading(false);
@@ -35,6 +37,12 @@ const AccountPage = () => {
     return classes;
   };
 
+  const handleLogout = async () => {
+    await axios.post(`/logout`);
+    redirect(`/`);
+    setUser(null);
+  };
+
   return (
     <div>
       <nav className="flex gap-6 justify-center mt-8 items-center">
@@ -55,7 +63,10 @@ const AccountPage = () => {
         <div className="  text-center justify-center mx-auto">
           <h2 className="m-10 text-2xl font-bold">Your home page</h2>
           <p>Hello {user?.name}</p>
-          <button className="bg-primary rounded-full w-1/4 mt-5 p-3 text-white">
+          <button
+            onClick={handleLogout}
+            className="bg-primary rounded-full w-1/4 mt-5 p-3 text-white"
+          >
             Logout
           </button>
         </div>
