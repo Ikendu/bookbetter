@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
 import { Link, NavLink, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { PlacesPage } from "./PlacesPage";
 
 const AccountPage = () => {
   const [loading, setLoading] = useState(true);
@@ -49,13 +50,10 @@ const AccountPage = () => {
         <Link className={linkClasses(`profile`)} to={`/account`}>
           My Profile
         </Link>
-        <Link
-          className={linkClasses(`accommodations`)}
-          to={`/account/accommodations`}
-        >
+        <Link className={linkClasses(`places`)} to={`/account/places`}>
           My Accommodations
         </Link>
-        <Link className={linkClasses(`places`)} to={`/account/places`}>
+        <Link className={linkClasses(`bookings`)} to={`/account/bookings`}>
           My Places
         </Link>
       </nav>
@@ -71,6 +69,7 @@ const AccountPage = () => {
           </button>
         </div>
       )}
+      {subpage === `places` && <PlacesPage />}
     </div>
   );
 };

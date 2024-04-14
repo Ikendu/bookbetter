@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const placeSchema = Schema({
+  owner: { type: Schema.Types.ObjectId, ref: `User` },
   title: String,
   address: String,
   description: String,
@@ -14,4 +15,4 @@ const placeSchema = Schema({
 
 const PlaceModel = model(`place`, placeSchema);
 
-module.exports = placeModel;
+module.exports = PlaceModel;
