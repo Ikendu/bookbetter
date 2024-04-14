@@ -3,6 +3,9 @@ import { UserContext } from "./UserContext";
 import { Link, NavLink, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { PlacesPage } from "./PlacesPage";
+import UserIcon from "../assets/Icons/UserIcon";
+import MyPlacesIcon from "../assets/Icons/MyPlacesIcon";
+import MyBookingsIcon from "../assets/Icons/MyBookingsIcon";
 
 const AccountPage = () => {
   const [loading, setLoading] = useState(true);
@@ -31,9 +34,9 @@ const AccountPage = () => {
   console.log(subpage);
 
   const linkClasses = (type) => {
-    let classes = `px-4 py-2 bg-gray-300 rounded-full`;
+    let classes = `px-4 py-2 bg-gray-300 rounded-full flex gap-2`;
     if (type == subpage || (type == `profile` && subpage == undefined)) {
-      return `px-4 py-2 bg-primary rounded-full text-white`;
+      return `px-4 py-2 bg-primary rounded-full text-white flex gap-2`;
     }
     return classes;
   };
@@ -48,13 +51,16 @@ const AccountPage = () => {
     <div>
       <nav className="flex gap-6 justify-center mt-8 items-center">
         <Link className={linkClasses(`profile`)} to={`/account`}>
+          <UserIcon />
           My Profile
         </Link>
         <Link className={linkClasses(`places`)} to={`/account/places`}>
+          <MyPlacesIcon />
           My Accommodations
         </Link>
         <Link className={linkClasses(`bookings`)} to={`/account/bookings`}>
-          My Places
+          <MyBookingsIcon />
+          My Bookings
         </Link>
       </nav>
       {subpage === undefined && (
