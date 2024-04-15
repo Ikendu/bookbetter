@@ -34,9 +34,9 @@ const AccountPage = () => {
   console.log(subpage);
 
   const linkClasses = (type) => {
-    let classes = `px-4 py-2 bg-gray-300 rounded-full flex gap-2`;
+    let classes = `px-4 py-2 bg-gray-300 rounded-full flex gap-2 items-center`;
     if (type == subpage || (type == `profile` && subpage == undefined)) {
-      return `px-4 py-2 bg-primary rounded-full text-white flex gap-2`;
+      return `px-4 py-2 bg-primary rounded-full text-white flex gap-2 items-center`;
     }
     return classes;
   };
@@ -49,7 +49,7 @@ const AccountPage = () => {
 
   return (
     <div>
-      <nav className="flex gap-6 justify-center mt-8 items-center">
+      <nav className="flex gap-8 justify-center mt-8 items-center">
         <Link className={linkClasses(`profile`)} to={`/account`}>
           <UserIcon />
           My Profile
