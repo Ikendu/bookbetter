@@ -7,6 +7,7 @@ import { UserContext } from "./UserContext";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const redirect = useNavigate();
   const { user, setUser } = useContext(UserContext);
   // const [redirects, setRedirects] = useState(false);
@@ -15,6 +16,7 @@ const LoginPage = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post("/login", userData);
 
@@ -54,6 +56,7 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="primary">Submit</button>
+          {loading && <p className="itallic text-xs text-center">loading...</p>}
           <div>
             <p className="text-gray-500 text-center">
               Dont have an accout?{" "}
