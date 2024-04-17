@@ -41,7 +41,6 @@ export const PlacesPage = () => {
               </label>
               <p className="text-sm text-gray-400">Address for this place</p>
               <input type="text" id="address" placeholder="your address" />
-              <input />
             </div>
 
             <div>
@@ -61,6 +60,43 @@ export const PlacesPage = () => {
                   </p>
                   +
                 </button>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="description" className="text-2xl text-gray-700">
+                Description
+              </label>
+              <p className="text-sm text-gray-400">describe the place</p>
+              <textarea id="description"></textarea>
+            </div>
+
+            <div>
+              <h3 className="text-2xl text-gray-700">Perks</h3>
+              <p className="text-sm text-gray-400">
+                Select all the available perks
+              </p>
+              <div>
+                <label>
+                  <input type="checkbox" />
+                  <span>Wifi</span>
+                </label>
+                <label>
+                  <input type="checkbox" />
+                  <span>TV</span>
+                </label>
+                <label>
+                  <input type="checkbox" />
+                  <span>Free parking spot</span>
+                </label>
+                <label>
+                  <input type="checkbox" />
+                  <span>Pet</span>
+                </label>
+                <label>
+                  <input type="checkbox" />
+                  <span>Private entrance</span>
+                </label>
               </div>
             </div>
           </form>
