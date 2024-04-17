@@ -19,13 +19,42 @@ export const PlacesPage = () => {
       )}
       {action === "new" && (
         <div>
-          <form>
-            <input
-              type="text"
-              placeholder="title: for example, my lovely home"
-            />
-            <input type="text" placeholder="your address"/>
-            <input />
+          <form className="flex flex-col gap-4">
+            <div>
+              <label htmlFor="title" className="text-2xl text-gray-700">
+                Title
+              </label>
+              <p className="text-sm text-gray-400">
+                title for your place, it should be short and catchy as in
+                advertisement
+              </p>
+              <input
+                type="text"
+                id="title"
+                placeholder="title: for example, my lovely home"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="address" className="text-2xl text-gray-700">
+                Address
+              </label>
+              <p className="text-sm text-gray-400">Address for this place</p>
+              <input type="text" id="address" placeholder="your address" />
+              <input />
+            </div>
+
+            <div>
+              <label htmlFor="address" className="text-2xl text-gray-700">
+                Photos
+              </label>
+              <p className="text-sm text-gray-400">More is better</p>
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                <button className="border rounded-2xl bg-transparent p-6">
+                  +
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       )}
