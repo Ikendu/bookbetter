@@ -48,9 +48,17 @@ export const PlacesPage = () => {
               <label htmlFor="address" className="text-2xl text-gray-700">
                 Photos
               </label>
+              <p className="text-sm text-gray-400">more = better</p>
+              <div className="flex gap-1 text-white">
+                <input type="text" placeholder="add using a link ...jpg" />
+                <button className="rounded-2xl px-4">Add&nbsp;Photos </button>
+              </div>
               <p className="text-sm text-gray-400">More is better</p>
               <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                <button className="border rounded-2xl bg-transparent p-6">
+                <button className="border rounded-2xl bg-transparent p-6 text-2xl">
+                  <p className="text-gray-400 text-xs">
+                    upload from your device
+                  </p>
                   +
                 </button>
               </div>
