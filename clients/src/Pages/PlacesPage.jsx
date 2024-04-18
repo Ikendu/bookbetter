@@ -22,6 +22,27 @@ export const PlacesPage = () => {
   const [extraInfo, setExtraInfo] = useState("");
 
   console.log(action);
+
+  function headerInput(text) {
+    return (
+      <label htmlFor="title" className="text-2xl text-gray-700 font-bold">
+        {text}
+      </label>
+    );
+  }
+
+  function descriptionInput(text) {
+    return <p className="text-sm text-gray-400">{text}</p>;
+  }
+
+  function preInput(header, describe) {
+    return (
+      <div>
+        {headerInput(header)}
+        {descriptionInput(describe)}
+      </div>
+    );
+  }
   return (
     <div className="m-6">
       {action !== "new" && (
