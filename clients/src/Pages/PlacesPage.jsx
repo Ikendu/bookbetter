@@ -80,35 +80,35 @@ export const PlacesPage = () => {
             <div>
               <h3 className="text-2xl text-gray-700">Perks</h3>
               <p className="text-sm text-gray-400">
-                Select all the available perks
+                Select all the available perks of your place
               </p>
-              <div className="grid grid-cols-3">
-                <label>
+              <div className="mt-3 grid grid-cols-2 md:grid-cols-3 gap-2">
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <WifiIcon />
                   <span>Wifi</span>
                 </label>
-                <label>
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <TVIcon />
                   <span>TV</span>
                 </label>
-                <label>
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <RadioIcon />
                   <span>Radio</span>
                 </label>
-                <label>
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <VehicleIcon />
                   <span>Free parking spot</span>
                 </label>
-                <label>
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <PetIcon />
                   <span>Pet</span>
                 </label>
-                <label>
+                <label className="p-4 border flex gap-2 rounded-xl items-center cursor-pointer">
                   <input type="checkbox" />
                   <EntranceIcon />
                   <span>Private entrance</span>
