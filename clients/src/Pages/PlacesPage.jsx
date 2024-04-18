@@ -1,5 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import PlusSignIcon from "../assets/Icons/PlusSignIcon";
+import PetIcon from "../assets/Icons/PetIcon";
+import VehicleIcon from "../assets/Icons/VehicleIcon";
+import WifiIcon from "../assets/Icons/WifiIcon";
+import TVIcon from "../assets/Icons/TVIcon";
+import EntranceIcon from "../assets/Icons/EntranceIcon";
+import RadioIcon from "../assets/Icons/RadioIcon";
 
 export const PlacesPage = () => {
   const { action } = useParams();
@@ -76,25 +82,35 @@ export const PlacesPage = () => {
               <p className="text-sm text-gray-400">
                 Select all the available perks
               </p>
-              <div>
+              <div className="grid grid-cols-3">
                 <label>
                   <input type="checkbox" />
+                  <WifiIcon />
                   <span>Wifi</span>
                 </label>
                 <label>
                   <input type="checkbox" />
+                  <TVIcon />
                   <span>TV</span>
                 </label>
                 <label>
                   <input type="checkbox" />
+                  <RadioIcon />
+                  <span>Radio</span>
+                </label>
+                <label>
+                  <input type="checkbox" />
+                  <VehicleIcon />
                   <span>Free parking spot</span>
                 </label>
                 <label>
                   <input type="checkbox" />
+                  <PetIcon />
                   <span>Pet</span>
                 </label>
                 <label>
                   <input type="checkbox" />
+                  <EntranceIcon />
                   <span>Private entrance</span>
                 </label>
               </div>
