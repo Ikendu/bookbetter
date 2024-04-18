@@ -6,9 +6,21 @@ import WifiIcon from "../assets/Icons/WifiIcon";
 import TVIcon from "../assets/Icons/TVIcon";
 import EntranceIcon from "../assets/Icons/EntranceIcon";
 import RadioIcon from "../assets/Icons/RadioIcon";
+import { useState } from "react";
 
 export const PlacesPage = () => {
   const { action } = useParams();
+  const [title, setTitle] = useState("");
+  const [address, setAddress] = useState("");
+  const [photos, setPhotos] = useState([]);
+  const [photoLink, setPhotoLink] = useState("");
+  const [description, setDescription] = useState("");
+  const [perks, setPerks] = useState([]);
+  const [checkin, setCheckIn] = useState("");
+  const [checkout, setCheckout] = useState("");
+  const [maxGuset, setMaxGuest] = useState(1);
+  const [extraInfo, setExtraInfo] = useState("");
+
   console.log(action);
   return (
     <div className="m-6">
@@ -41,6 +53,8 @@ export const PlacesPage = () => {
                 type="text"
                 id="title"
                 placeholder="title: for example, my lovely home"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
 
@@ -52,7 +66,13 @@ export const PlacesPage = () => {
                 Address
               </label>
               <p className="text-sm text-gray-400">Address for this place</p>
-              <input type="text" id="address" placeholder="your address" />
+              <input
+                type="text"
+                id="address"
+                placeholder="your address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
             </div>
 
             <div>
@@ -86,7 +106,11 @@ export const PlacesPage = () => {
                 Description
               </label>
               <p className="text-sm text-gray-400">describe the place</p>
-              <textarea id="description" />
+              <textarea
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
 
             <div>
@@ -138,23 +162,42 @@ export const PlacesPage = () => {
               <div className="grid grid-flow-col gap-2">
                 <div>
                   <p className="font-bold">Check in time</p>
-                  <input type="text" placeholder="12:00" />
+                  <input
+                    type="text"
+                    placeholder="12:00"
+                    value={checkin}
+                    onChange={(e) => setCheckIn(e.target.value)}
+                  />
                 </div>
                 <div>
                   <p className="font-bold">Check out time</p>
-                  <input type="text" placeholder="24:00" />
+                  <input
+                    type="text"
+                    placeholder="24:00"
+                    value={checkout}
+                    onChange={(e) => setCheckout(e.target.value)}
+                  />
                 </div>
                 <div>
                   <p className="font-bold">Max number of guest</p>
-                  <input type="text" placeholder="Eg: 4" />
+                  <input
+                    type="text"
+                    placeholder="Eg: 4"
+                    value={maxGuset}
+                    onChange={(e) => setMaxGuest(e.target.value)}
+                  />
                 </div>
               </div>
             </div>
             <div>
               <h3 className="text-2xl text-gray-700 font-bold">Extra Info</h3>
               <p className="text-sm text-gray-400">House rules, etc</p>
-              <textarea />
+              <textarea
+                value={extraInfo}
+                onChange={(e) => setExtraInfo(e.target.value)}
+              />
             </div>
+            <button className="primary">Save</button>
           </form>
         </div>
       )}
