@@ -27,7 +27,10 @@ export const PlacesPage = () => {
         <div>
           <form className="flex flex-col gap-4">
             <div>
-              <label htmlFor="title" className="text-2xl text-gray-700">
+              <label
+                htmlFor="title"
+                className="text-2xl text-gray-700 font-bold"
+              >
                 Title
               </label>
               <p className="text-sm text-gray-400">
@@ -42,7 +45,10 @@ export const PlacesPage = () => {
             </div>
 
             <div>
-              <label htmlFor="address" className="text-2xl text-gray-700">
+              <label
+                htmlFor="address"
+                className="text-2xl text-gray-700  font-bold"
+              >
                 Address
               </label>
               <p className="text-sm text-gray-400">Address for this place</p>
@@ -50,7 +56,10 @@ export const PlacesPage = () => {
             </div>
 
             <div>
-              <label htmlFor="address" className="text-2xl text-gray-700">
+              <label
+                htmlFor="address"
+                className="text-2xl text-gray-700  font-bold"
+              >
                 Photos
               </label>
               <p className="text-sm text-gray-400">more = better</p>
@@ -70,15 +79,18 @@ export const PlacesPage = () => {
             </div>
 
             <div>
-              <label htmlFor="description" className="text-2xl text-gray-700">
+              <label
+                htmlFor="description"
+                className="text-2xl text-gray-700  font-bold"
+              >
                 Description
               </label>
               <p className="text-sm text-gray-400">describe the place</p>
-              <textarea id="description"></textarea>
+              <textarea id="description" />
             </div>
 
             <div>
-              <h3 className="text-2xl text-gray-700">Perks</h3>
+              <h3 className="text-2xl text-gray-700  font-bold">Perks</h3>
               <p className="text-sm text-gray-400">
                 Select all the available perks of your place
               </p>
@@ -114,6 +126,34 @@ export const PlacesPage = () => {
                   <span>Private entrance</span>
                 </label>
               </div>
+            </div>
+            <div>
+              <h3 className="text-2xl text-gray-700 font-bold">
+                Check in&out time
+              </h3>
+              <p className="text-sm text-gray-400">
+                Add checkin and checkout time, remember to have some time window
+                for cleaning the room between guests
+              </p>
+              <div className="grid grid-flow-col gap-2">
+                <div>
+                  <p className="font-bold">Check in time</p>
+                  <input type="text" placeholder="12:00" />
+                </div>
+                <div>
+                  <p className="font-bold">Check out time</p>
+                  <input type="text" placeholder="24:00" />
+                </div>
+                <div>
+                  <p className="font-bold">Max number of guest</p>
+                  <input type="text" placeholder="Eg: 4" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl text-gray-700 font-bold">Extra Info</h3>
+              <p className="text-sm text-gray-400">House rules, etc</p>
+              <textarea />
             </div>
           </form>
         </div>
